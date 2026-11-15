@@ -1,6 +1,6 @@
 # TudoPronto PDF
 
-Website estático bilingue (PT/EN) com oito operações PDF executadas no navegador.
+Website estático bilingue (PT/EN) com nove ferramentas PDF executadas no navegador.
 
 ## Funcionalidades
 
@@ -11,7 +11,7 @@ Website estático bilingue (PT/EN) com oito operações PDF executadas no navega
 - PDF para imagens: renderiza páginas em PNG/JPG e descarrega um ZIP.
 - Imagens para PDF: cria um PDF a partir de imagens PNG/JPG/WEBP.
 - Organizar páginas: recebe a ordem completa (ex.: `3,1,2`).
-- Eliminar páginas: remove as páginas indicadas.
+- Eliminar páginas: remove as páginas indicadas.\n- Texto para PDF: transforma texto escrito ou colado no navegador num PDF A4, com título opcional e quebra automática de linhas e páginas.
 
 ## Bibliotecas
 
@@ -51,7 +51,7 @@ Depois visite `http://localhost:8000`.
 
 ## Limitações conhecidas
 
-- PDFs protegidos por palavra-passe, danificados ou com estruturas incomuns podem não abrir.
+- PDFs protegidos por palavra-passe, danificados ou com estruturas incomuns podem não abrir.\n- Texto para PDF utiliza as fontes padrão Helvetica do PDF; caracteres fora do conjunto suportado por essas fontes podem não ser convertidos corretamente.
 - A compressão por regravação não garante redução. Para uma compressão real de imagens seria necessária uma rotina adicional de rasterização/recompressão, com possível perda de qualidade.
 - A conversão PDF → imagem usa memória proporcional ao número e à resolução das páginas; ficheiros grandes podem exceder os limites do dispositivo. Use escala 1× para documentos longos.
 - As bibliotecas são carregadas de CDN; esta versão não inclui cópias locais/offline dessas dependências.
