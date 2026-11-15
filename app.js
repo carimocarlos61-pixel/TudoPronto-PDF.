@@ -35,7 +35,7 @@ async function processTextPdf(){
   let page=doc.addPage([width,height]),y=height-margin;
   const addPage=()=>{page=doc.addPage([width,height]);y=height-margin;};
   const drawWrapped=(text,font,size,color)=>{
-   const words=text.split(/\\s+/);let line='';
+   const words=text.split(/\s+/);let line='';
    for(const word of words){
     const candidate=line?line+' '+word:word;
     if(font.widthOfTextAtSize(candidate,size)>width-margin*2 && line){
@@ -46,7 +46,7 @@ async function processTextPdf(){
    if(line){if(y<margin+lineHeight)addPage();page.drawText(line,{x:margin,y,size,font,color});y-=lineHeight;}
   };
   if(title){drawWrapped(title,bold,19,PDFLib.rgb(.10,.16,.29));y-=14;}
-  const paragraphs=content.replace(/\\r/g,'').split('\\n');
+  const paragraphs=content.replace(/\r/g,'').split('\n');
   for(const paragraph of paragraphs){
    if(!paragraph.trim()){y-=lineHeight*.65;if(y<margin+lineHeight)addPage();continue;}
    drawWrapped(paragraph,regular,bodySize,PDFLib.rgb(.16,.20,.28));y-=7;
