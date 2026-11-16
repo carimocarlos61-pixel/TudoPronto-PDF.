@@ -1,6 +1,22 @@
 <!doctype html>
 <html lang="pt">
 <head>
+  <script>
+  // Proteção adicional: bloqueia pop-ups abertos fora do espaço publicitário visível.
+  (function () {
+    const nativeOpen = window.open;
+    window.open = function (url, name, features) {
+      const active = document.activeElement;
+      const insideAd = active && typeof active.closest === 'function' && active.closest('#adSlot');
+      if (!insideAd) {
+        console.warn('Pop-up bloqueado fora do espaço publicitário.');
+        return null;
+      }
+      return nativeOpen.call(window, url, name, features);
+    };
+  })();
+  </script>
+
   <script src="https://quge5.com/88/tag.min.js" data-zone="310798" async data-cfasync="false"></script>
 
 
